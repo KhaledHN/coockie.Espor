@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useForm } from "@formspree/react";
+import { useForm, ValidationError } from "@formspree/react";
 
 const ContactForm = () => {
   const [activePage, setActivePage] = useState(1);
@@ -40,40 +40,20 @@ const ContactForm = () => {
     formData[name] = value;
   };
 
-  // Function to toggle between pages
-  const togglePages = () => {
-    setActivePage((prevPage) => (prevPage < 7 ? prevPage + 1 : 1));
-  };
-
-  // Function to go back to the previous page
-  const goBack = () => {
-    setActivePage((prevPage) => (prevPage === 1 ? 7 : prevPage - 1));
-  };
-
-  // Submit handler
-  const submitForm = async (e) => {
-    e.preventDefault();
-
-    try {
-      await handleSubmit(e);
-
-      // Form submission was successful
-      if (activePage === 7) {
-        // If on the last page, display "Thanks for joining!" message
-        setActivePage(10);
-      } else {
-        // If not on the last page, move to the next page
-        togglePages();
-      }
-    } catch (error) {
-      // Handle errors
-      console.error(error);
-    }
-  };
+  if (state.succeeded) {
+    return (
+      <div className=" pb-5 text-white text-center text-bold text-2xl px-10 pt-[370px] flex justify-center">
+        <p className=" w-[280px] ">
+          Formunuz Gönderilmiştir!{" "}
+          <span className=" text-gray-400 text-2xl ">iyi oyunlar 🎮🕹</span>
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <div className="w-full absolute h-full mx-auto p-6 bg-transparent rounded-md shadow-md">
-      <div className="max-w-[1400px] w-full h-full mx-auto py-10 flex justify-center items-center ">
+    <div className="w-full absolute h-[5000px] md:pt-56 mx-auto p-6 bg-transparent rounded-md shadow-md">
+      <div className="max-w-[1400px] w-full h-full mx-auto py-10 flex justify-center items-start ">
         <div className="w-[400px] ">
           <div className=" ">
             <h2 className="text-white text-2xl font-semibold mb-2">
@@ -87,44 +67,43 @@ const ContactForm = () => {
           {activePage === 10 ? (
             <p className="text-white">Thanks for joining!</p>
           ) : (
-            <form onSubmit={submitForm}>
-              {activePage === 1 && (
-                <div>
-                  <div className="mb-4">
-                    <label
-                      className="block text-gray-200 text-sm font-bold mb-2"
-                      htmlFor="name"
-                    >
-                      Takım Adını Girin:
-                    </label>
-                    <input
-                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
-                      type="text"
-                      placeholder="Takım Adı Giriniz"
-                      name="name"
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label
-                      className="block text-gray-200 text-sm font-bold mb-2"
-                      htmlFor="ad"
-                    >
-                      Takım Kısaltması Giriniz:
-                    </label>
-                    <input
-                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
-                      type="text"
-                      placeholder="Takım Kısaltması Giriniz"
-                      name="ad"
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
+            <form onSubmit={handleSubmit}>
+              <div className="  ">
+                <div className="mb-4">
+                  <label
+                    className="block text-gray-200 text-sm font-bold mb-2"
+                    htmlFor="name"
+                  >
+                    Takım Adını Girin:
+                  </label>
+                  <input
+                    className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                    type="text"
+                    placeholder="Takım Adı Giriniz"
+                    name="name"
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
-              )}
-              {activePage === 2 && (
+                <div className="mb-4">
+                  <label
+                    className="block text-gray-200 text-sm font-bold mb-2"
+                    htmlFor="ad"
+                  >
+                    Takım Kısaltması Giriniz:
+                  </label>
+                  <input
+                    className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                    type="text"
+                    placeholder="Takım Kısaltması Giriniz"
+                    name="ad"
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className=" pt-[200px] md:pt-[410px] ">
                 <div>
                   <div className="mb-5">
                     <label
@@ -173,8 +152,9 @@ const ContactForm = () => {
                     />
                   </div>
                 </div>
-              )}
-              {activePage === 3 && (
+              </div>
+
+              <div className=" pt-[200px] md:pt-[410px] ">
                 <div>
                   <div className="mb-5">
                     <label
@@ -223,15 +203,16 @@ const ContactForm = () => {
                     />
                   </div>
                 </div>
-              )}
-              {activePage === 4 && (
+              </div>
+
+              <div className=" pt-[200px] md:pt-[410px] ">
                 <div>
                   <div className="mb-5">
                     <label
                       className="block text-gray-200 text-md font-bold mb-4"
                       htmlFor="ad3"
                     >
-                      2. Oyuncu )
+                      3. Oyuncu Bilgileri (Zorunlu)
                     </label>
                     <input
                       className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-lg shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
@@ -273,15 +254,16 @@ const ContactForm = () => {
                     />
                   </div>
                 </div>
-              )}
-              {activePage === 5 && (
+              </div>
+
+              <div className=" pt-[200px] pt-[410px] ">
                 <div>
                   <div className="mb-5">
                     <label
                       className="block text-gray-200 text-md font-bold mb-4"
                       htmlFor="ad4"
                     >
-                      2. Oyuncu )hahahah
+                      4. Oyuncu Bilgileri (Zorunlu)
                     </label>
                     <input
                       className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-lg shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
@@ -323,15 +305,16 @@ const ContactForm = () => {
                     />
                   </div>
                 </div>
-              )}
-              {activePage === 6 && (
+              </div>
+
+              <div className=" pt-[200px] pt-[410px] ">
                 <div>
                   <div className="mb-5">
                     <label
                       className="block text-gray-200 text-md font-bold mb-4"
                       htmlFor="ad5"
                     >
-                      2. Oyuncu )
+                      5. Oyuncu Bilgileri (Zorunlu)
                     </label>
                     <input
                       className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-lg shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
@@ -373,15 +356,16 @@ const ContactForm = () => {
                     />
                   </div>
                 </div>
-              )}
-              {activePage === 7 && (
+              </div>
+
+              <div className=" pt-[200px] pt-[410px] ">
                 <div>
                   <div className="mb-5">
                     <label
                       className="block text-gray-200 text-md font-bold mb-4"
                       htmlFor="ad6"
                     >
-                      2. Oyuncu )
+                      6. Oyuncu Bilgileri (Zorunlu)
                     </label>
                     <input
                       className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-lg shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
@@ -423,7 +407,8 @@ const ContactForm = () => {
                     />
                   </div>
                 </div>
-              )}
+              </div>
+
               <div className="w-full ">
                 <button
                   type="submit"
@@ -436,7 +421,7 @@ const ContactForm = () => {
             </form>
           )}
           {activePage !== 1 && activePage !== 10 && (
-            <div className="w-full pl-[150px] pt-24">
+            <div className="w-full pl-[130px] md:pl-[150px] pt-24">
               <button
                 className="w-[40%] bg-[#212529] text-white p-3 rounded-full shadow-lg shadow-gray-800 hover:bg-gray-900 duration-200 focus:outline-none focus:shadow-outline-blue "
                 onClick={goBack}

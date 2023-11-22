@@ -5,7 +5,13 @@
 body {
     background-image: url('../../public/assets/bg-fhd.png');
     background-size: cover; /* This property ensures that the background image covers the entire element */
-    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   
+  @media (min-width: 300px) {
+    body {
+      background-attachment: fixed;
+    }
+  }
   
