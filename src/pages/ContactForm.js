@@ -17,6 +17,22 @@ const ContactForm = () => {
     soyad2: "",
     lolnic2: "",
     discord2: "",
+    ad3: "",
+    soyad3: "",
+    lolnic3: "",
+    discord3: "",
+    ad4: "",
+    soyad4: "",
+    lolnic4: "",
+    discord4: "",
+    ad5: "",
+    soyad5: "",
+    lolnic5: "",
+    discord3: "",
+    ad6: "",
+    soyad6: "",
+    lolnic6: "",
+    discord6: "",
   };
 
   const handleInputChange = (e) => {
@@ -26,12 +42,12 @@ const ContactForm = () => {
 
   // Function to toggle between pages
   const togglePages = () => {
-    setActivePage((prevPage) => (prevPage === 1 ? 2 : prevPage === 2 ? 3 : 1));
+    setActivePage((prevPage) => (prevPage < 7 ? prevPage + 1 : 1));
   };
 
   // Function to go back to the previous page
   const goBack = () => {
-    setActivePage((prevPage) => (prevPage === 1 ? 3 : prevPage - 1));
+    setActivePage((prevPage) => (prevPage === 1 ? 7 : prevPage - 1));
   };
 
   // Submit handler
@@ -42,9 +58,9 @@ const ContactForm = () => {
       await handleSubmit(e);
 
       // Form submission was successful
-      if (activePage === 3) {
+      if (activePage === 7) {
         // If on the last page, display "Thanks for joining!" message
-        setActivePage(4);
+        setActivePage(10);
       } else {
         // If not on the last page, move to the next page
         togglePages();
@@ -68,7 +84,7 @@ const ContactForm = () => {
               hazır mısın?
             </h2>
           </div>
-          {activePage === 4 ? (
+          {activePage === 10 ? (
             <p className="text-white">Thanks for joining!</p>
           ) : (
             <form onSubmit={submitForm}>
@@ -208,6 +224,206 @@ const ContactForm = () => {
                   </div>
                 </div>
               )}
+              {activePage === 4 && (
+                <div>
+                  <div className="mb-5">
+                    <label
+                      className="block text-gray-200 text-md font-bold mb-4"
+                      htmlFor="ad3"
+                    >
+                      2. Oyuncu )
+                    </label>
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-lg shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Adınız"
+                      name="ad3"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Soyadınız"
+                      name="soyad3"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="League Of Legends Nickiniz"
+                      name="lolnic3"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Discord Nickiniz"
+                      name="discord3"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                </div>
+              )}
+              {activePage === 5 && (
+                <div>
+                  <div className="mb-5">
+                    <label
+                      className="block text-gray-200 text-md font-bold mb-4"
+                      htmlFor="ad4"
+                    >
+                      2. Oyuncu )hahahah
+                    </label>
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-lg shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Adınız"
+                      name="ad34"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Soyadınız"
+                      name="soyad4"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="League Of Legends Nickiniz"
+                      name="lolnic4"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Discord Nickiniz"
+                      name="discord4"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                </div>
+              )}
+              {activePage === 6 && (
+                <div>
+                  <div className="mb-5">
+                    <label
+                      className="block text-gray-200 text-md font-bold mb-4"
+                      htmlFor="ad5"
+                    >
+                      2. Oyuncu )
+                    </label>
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-lg shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Adınız"
+                      name="ad5"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Soyadınız"
+                      name="soyad5"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="League Of Legends Nickiniz"
+                      name="lolnic5"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Discord Nickiniz"
+                      name="discord5"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                </div>
+              )}
+              {activePage === 7 && (
+                <div>
+                  <div className="mb-5">
+                    <label
+                      className="block text-gray-200 text-md font-bold mb-4"
+                      htmlFor="ad6"
+                    >
+                      2. Oyuncu )
+                    </label>
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-lg shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Adınız"
+                      name="ad6"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Soyadınız"
+                      name="soyad6"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="League Of Legends Nickiniz"
+                      name="lolnic6"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <input
+                      className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
+                      type="text"
+                      placeholder="Discord Nickiniz"
+                      name="discord6"
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                </div>
+              )}
               <div className="w-full ">
                 <button
                   type="submit"
@@ -219,7 +435,7 @@ const ContactForm = () => {
               </div>
             </form>
           )}
-          {activePage !== 1 && activePage !== 4 && (
+          {activePage !== 1 && activePage !== 10 && (
             <div className="w-full pl-[150px] pt-24">
               <button
                 className="w-[40%] bg-[#212529] text-white p-3 rounded-full shadow-lg shadow-gray-800 hover:bg-gray-900 duration-200 focus:outline-none focus:shadow-outline-blue "
