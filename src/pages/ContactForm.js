@@ -115,7 +115,7 @@ const ContactForm = () => {
                     <input
                       className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-lg shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
                       type="text"
-                      placeholder="isim"
+                      placeholder="Adınız"
                       name="isim"
                       onChange={handleInputChange}
                       required
