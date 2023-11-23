@@ -52,7 +52,7 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="w-full absolute h-[5000px] md:pt-56 mx-auto p-6 bg-transparent rounded-md shadow-md">
+    <div className="w-full absolute h-[4200px] md:h-[5000px] md:pt-56 mx-auto p-6 bg-transparent rounded-md shadow-md">
       <div className="max-w-[1400px] w-full h-full mx-auto py-10 flex justify-center items-start ">
         <div className="w-[400px] ">
           <div className=" ">
