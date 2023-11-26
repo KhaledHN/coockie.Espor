@@ -40,17 +40,6 @@ const ContactForm = () => {
     formData[name] = value;
   };
 
-  if (state.succeeded) {
-    return (
-      <div className=" pb-5 text-white text-center text-bold text-2xl px-10 pt-[370px] flex justify-center">
-        <p className=" w-[280px] ">
-          Formunuz Gönderilmiştir!{" "}
-          <span className=" text-gray-400 text-2xl ">iyi oyunlar 🎮🕹</span>
-        </p>
-      </div>
-    );
-  }
-
   return (
     <div className="w-full absolute h-[4200px] md:h-[5000px] md:pt-56 mx-auto p-6 bg-transparent rounded-md shadow-md">
       <div className="max-w-[1400px] w-full h-full mx-auto py-10 flex justify-center items-start ">
@@ -67,7 +56,7 @@ const ContactForm = () => {
           {activePage === 10 ? (
             <p className="text-white">Thanks for joining!</p>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form>
               <div className="  ">
                 <div className="mb-4">
                   <label
@@ -80,7 +69,7 @@ const ContactForm = () => {
                     className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-md shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
                     type="text"
                     placeholder="Takım Adı Giriniz"
-                    name="name"
+                    name="takimadi"
                     onChange={handleInputChange}
                     required
                   />
@@ -88,7 +77,7 @@ const ContactForm = () => {
                 <div className="mb-4">
                   <label
                     className="block text-gray-200 text-sm font-bold mb-2"
-                    htmlFor="ad"
+                    htmlFor="kisaltma"
                   >
                     Takım Kısaltması Giriniz:
                   </label>
@@ -116,7 +105,7 @@ const ContactForm = () => {
                       className="w-full p-2 pl-5 border border-gray-300 rounded-full shadow-lg shadow-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder-gray-600"
                       type="text"
                       placeholder="Adınız"
-                      name="isim"
+                      name="ad"
                       onChange={handleInputChange}
                       required
                     />
@@ -410,12 +399,10 @@ const ContactForm = () => {
               </div>
 
               <div className="w-full ">
-                <button
-                  type="submit"
-                  disabled={state.submitting}
-                  className="w-full bg-[#212529] text-white p-3 rounded-full shadow-md shadow-gray-800 hover:bg-gray-900 duration-200 focus:outline-none focus:shadow-outline-blue"
-                >
-                  Submit
+                <button className="w-full bg-[#212529] text-white p-3 rounded-full shadow-md shadow-gray-800 hover:bg-gray-900 duration-200 focus:outline-none focus:shadow-outline-blue">
+                  <a href="/Finished" className=" w-full h-full ">
+                    Submit
+                  </a>
                 </button>
               </div>
             </form>
